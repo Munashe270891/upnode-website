@@ -1,1 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  /* Theme Variant Reference: Enterprise Trust Palette */
+  --color-brand-primary: #0F172A;   /* Deep Slate Navy (Dominant background & premium headings) */
+  --color-brand-secondary: #F8FAFC; /* Clean Slate (Light structural blocks & cards) */
+  --color-brand-accent: #06B6D4;    /* Electric Cyan (CTAs, focal points, and action elements) */
+  --color-brand-accent-hover: #0891B2; /* Richer Teal/Cyan for premium interactive hover states */
+  --color-brand-text-dark: #1E293B;  /* Midnight Charcoal for high-contrast body readability */
+  --color-brand-text-light: #94A3B8; /* Muted Slate for subtitles, captions, and footer hints */
+
+  /* Global Tech Typography Stack */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased text-brand-text-dark bg-brand-secondary;
+  }
+  
+  body {
+    @apply font-sans min-h-screen flex flex-col overflow-x-hiddenSelection selection:bg-brand-accent/20 selection:text-brand-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-brand-primary;
+  }
+}
+
+@layer utilities {
+  /* Premium visual polish helpers */
+  .glow-card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/5;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary via-slate-800 to-brand-accent;
+  }
+}
 
